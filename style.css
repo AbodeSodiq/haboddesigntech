@@ -1,0 +1,2367 @@
+
+    /* General reset*/
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+  
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      
+      }
+    
+  
+      @media (max-width: 768px) {
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.5;
+          overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        }
+      }
+  
+  
+      
+      
+/* Keyframe animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(15%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Scroll container */
+.scroll-container {
+  width: 100%;
+  background-color: #f4f4f4;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* Scrolling text */
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 30s linear infinite; /* Slower speed */
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  padding: 30px;
+  min-width: 200%; /* Ensure enough width for continuous scrolling */
+}
+
+/* Duplicate the text for continuous scrolling */
+.scroll-text::after {
+  content: attr(data-text) " " attr(data-text); /* Duplicate content */
+  display: inline-block;
+  padding-left: 50px;
+}
+
+/* Adjust font size for mobile */
+@media (max-width: 768px) {
+  .scroll-text {
+    animation: scroll 40s linear infinite; /* Even slower for small screens */
+    min-width: 350%;
+  }
+}
+
+/* Adjust font sizes for different screens */
+@media (min-width: 768px) {
+  .scroll-text span {
+    font-size: 20px;
+    min-width: 250%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .scroll-text span {
+    font-size: 24px;
+  }
+}
+
+      /* for hamburger menu */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+  
+      /* Navigation Bar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 1);
+        color: #fff;
+        padding: 15px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 90px;
+        /* Define a fixed height for the navbar */
+        transition: all 0.5s ease;
+        /* Smooth transition for shrinking and background */
+      }
+  
+      /* Adjust the body or content container below */
+      body {
+        margin-top: 90px;
+        /* Add a margin equal to the navbar height */
+      }
+  
+  
+      .navbar.shrink {
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Transparent background when scrolling */
+        padding: 8px 20px;
+        /* Reduce height */
+        height: 60px;
+      }
+  
+      .brand-logo img {
+        width: 130px;
+        height: 180%;
+        margin-top: 10px;
+        transition: all 0.5s ease;
+        margin-left: 10px;
+      }
+  
+      .navbar.shrink .brand-logo img {
+        width: 100px;
+        /* Smaller logo when scrolling */
+        height: 150%;
+        margin-top: 10px;
+      }
+  
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+  
+      .menu-toggle span {
+        background: #fff;
+        height: 3px;
+        width: 25px;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+      }
+  
+      
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 5px;
+        margin-right: 20px;
+      }
+  
+      @media (min-width:768px) {
+      .nav-links {  
+        gap: 30px;
+      }
+    }
+  
+  
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+      }
+  
+      .nav-links li a:hover {
+      text-decoration: underline; 
+      }
+  
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+  
+        .nav-links {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 250px;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.90);
+          flex-direction: column;
+          padding-top: 60px;
+          transition: left 1s ease;
+          z-index: 100;
+        }
+  
+        .nav-links.active {
+          left: 0;
+        }
+  
+        .nav-links li {
+          margin: 10px 20px;
+        }
+
+      }
+  
+      .hidden-text {
+        display: none;
+      }
+  
+      /* Style for the Image Container */
+      .image-container {
+        position: relative;
+        /* Enables positioning of child elements */
+        background: url('images/haboddesigntech-page.webp') no-repeat center center;
+        /* Replace with your background */
+        background-size: cover;
+        /* Ensure the background covers the container */
+        width: 100%;
+        /* Adjust width as needed */
+        height: 520px;
+        /* Set the height of the container */
+      }
+  
+      /* Ensures the image stretches to the full width */
+      .image-container img {
+        position: absolute;
+        /* Allows precise positioning */
+        bottom: 0;
+        /* Aligns the lower border */
+        left: 0;
+        /* Positions the image on the left */
+        height: auto;
+        /* Maintain aspect ratio */
+        max-height: 100%;
+        /* Prevents overflow beyond the container height */
+        object-fit: contain;
+        /* Ensures the image doesn't stretch */
+        margin-left: 30px;
+      }
+  
+      
+    
+      .image-container h1 {
+        position: absolute;
+        /* Allows precise positioning */
+        margin-top: 65px;
+        margin-left: 150px;
+        font-size: 20px;
+        color: #f1f1f1;
+      }
+  
+      .text-container {
+        line-height: 1.5;
+        /* Adjust to your preference (default is usually 1.5) */
+        margin-left: 100px;
+      }
+  
+  
+  
+  
+      @media (max-width: 768px) {
+        .image-container img {
+          height: 300px;
+          /* Set a fixed height */
+          object-fit: cover;
+          /* Crop the image */
+          object-position: left center;
+          /* Align the left part fully, crop the right */
+          overflow: hidden;
+          /* Hide any overflow */
+          margin-left: 10px;
+        }
+
+        
+  
+        .image-container {
+          position: relative;
+          /* Enables positioning of child elements */
+          width: 100%;
+          /* Adjust width as needed */
+          height: 400px;
+          /* Set the height of the container */
+        }
+
+        .image-container h1 {
+          position: absolute;
+          /* Allows precise positioning */
+          margin-top: 65px;
+          margin-left: 70px;
+          font-size: 30px;
+          color: #f1f1f1;
+        }
+    
+  
+      }
+  
+      @media (min-width: 768px) {
+        .image-container h1 {
+          position: absolute;
+          /* Allows precise positioning */
+          margin-top: 45px;
+          margin-left: 250px;
+          font-size: 45px;
+          color: #f1f1f1;
+        }
+
+        .image-container img {
+          margin-left: 50px;
+      }
+    }
+
+      
+  
+      /* Before Course Section */
+      .courses {
+        text-align: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 35px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        color: rgb(92, 85, 85);
+  
+      }
+  
+      @media (min-width: 768px) {
+          .courses {
+        margin-bottom: 50px;   
+      }
+        }
+  
+      /* General styles for the course container */
+      .course-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px auto;
+        /* Centers the container horizontally */
+        width: 75%;
+        /* Sets the width to 75% of the page */
+        max-width: 1200px;
+        /* Optional: limits the width on larger screens */
+        align-self: center;
+        margin-top: 25px;
+      }
+  
+  
+      /* Each row */
+      .course-row {
+        display: flex;
+        gap: 10vw;
+        margin-bottom: 60px;
+        justify-content: center;
+      }
+  
+      /* Styling each course item (rectangle) */
+      .course-item {
+        background-color: #f1f1f1;
+        border-radius: 15px;
+        /* Curved edges */
+        width: calc(50% - 10px);
+        /* Half-width for desktop, adjusted in mobile view */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: 9 / 10;
+        text-align: center;
+        /* Center align all text */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+  
+      .course-item .icon {
+        flex: 1;
+        padding: 10%;
+        /* Adjust padding to be responsive */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(1rem + 0.2vw);
+        /* Responsive font size for icon */
+        margin-bottom: -15px;
+      }
+  
+      .course-item .text {
+        flex: 1;
+        padding: 5%;
+        /* Adjust padding for smaller screens */
+        font-size: calc(0.8rem + 0.2vw);
+        /* Responsive font size */
+        line-height: 1.2;
+        /* Maintain spacing between lines */
+        margin-top:2px;
+        margin-bottom: 0px;
+      }
+  
+      .course-item .course-name {
+        background-color: #9932CC;
+        /* Green background for course name */
+        color: white;
+        padding: 10px;
+        font-size: calc(0.9rem + 0.2vw);
+        /* Responsive font size for course name */
+        text-align: center;
+      }
+  
+      a {
+        text-decoration: none !important; /* Removes underline */
+        color: inherit !important; /* Keeps text color the same */
+      }
+      
+      a:hover, a:focus, a:visited {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+      
+  
+      
+  
+      /* Mobile View */
+  
+      @media (max-width: 768px) {
+        .course-container {
+          width: 90%;
+          /* Makes it wider on smaller screens */
+          max-width: none;
+          /* Remove max-width constraint */
+        }
+      }
+  
+  
+      @media (max-width: 768px) {
+        .course-item {
+          max-width: 170px;
+          /* Shrinks the box for mobile */
+        }
+  
+        .course-item .icon img {
+          height: 50px;
+          width: 50;
+          align-items: center;
+  
+        }
+  
+        .course-item .text,
+        .course-item .course-name {
+          font-size: calc(0.7rem + 0.5vw);
+          /* Smaller text for mobile screens */
+        }
+      }
+  
+  
+      @media (max-width: 480px) {
+        .course-item {
+          max-width: 160px;
+          /* Further shrink for very small screens */
+        }
+  
+        .course-item .icon,
+        .course-item .text,
+        .course-item .course-name {
+          font-size: calc(0.6rem + 0.5vw);
+          /* Further adjustment for tiny screens */
+        }
+      }
+  
+  
+      @media (min-width: 768px) {
+        .course-container {
+          display: flex;
+          flex-direction: row;
+          /* Aligns everything in one row */
+          flex-wrap: nowrap;
+          /* Prevents wrapping */
+          justify-content: space-between;
+          /* Distributes items evenly */
+          gap: 40px;
+          /* Space between items */
+          margin-bottom: 50px;
+          width: 86%;
+        }
+  
+        .course-row {
+          display: contents;
+          /* Removes row structure on desktop */
+        }
+  
+        .course-item {
+          width: 23%;
+          /* Makes sure all four items fit in one row */
+          max-width: 250px;
+          /* Ensures uniform size */
+          aspect-ratio: 9 / 10;
+        }
+  
+        .course-item .icon img {
+          height: 50px;
+          width: 50;
+          align-items: center;
+  
+        }
+  
+        .course-item .text {
+          font-size: calc(0.6rem + 0.4vw);
+          
+  
+          .course-item .course-name {
+            font-size: calc(0.6rem + 0.5vw);
+          }
+        }
+      }
+  
+    
+      /* Other Courses */
+      .other-courses {
+        display: flex;
+        justify-content: center; /* Align to the right *//
+        
+        
+    }
+    
+    .other-courses a {
+        text-decoration: underline;
+        font-size: 22px;
+        font-weight: 600;
+        color:rgb(135, 131, 131); /* Dark text color */
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Space between text and arrow */
+        transition: color 0.3s ease;
+    }
+    
+    .other-courses .arrow {
+        font-size: 40px; /* Slightly bigger arrow */
+        transition: transform 0.3s ease;
+    }
+    
+    .other-courses a:hover {
+        color: #9932CC; /* Change color on hover */
+    }
+    
+    .other-courses a:hover .arrow {
+        transform: translateX(10px); /* Smooth slide effect */
+
+    }
+
+  
+    @media (max-height: 768px) {
+      .other-courses {
+        margin-top: -20px;
+      }
+      }
+     
+    
+
+    /* After Course Section */
+    .imagetextcontainer {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        background: linear-gradient(to right, #64028e, #9932CC);
+        overflow: hidden;
+        margin-top: 60px;
+    }
+  
+    .imagetextcontainer img {
+        position: relative;
+        bottom: -130px;
+        margin-left: 45%;
+        height: auto;
+        max-height: 100%;
+        width: 300px;
+        object-fit: cover;
+        margin-top: 50px;
+    }
+  
+    .imagetextcontainer-text {
+        position: absolute;
+        margin-left: 25px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        margin-top: 60px;
+    }
+  
+    @media (min-width: 768px) {
+      .imagetextcontainer {
+          margin-top: 120px;
+    }
+  
+   
+
+    .imagetextcontainer img {
+      position: relative;
+      bottom: 5px;
+      margin-left: 60%;
+      height: auto;
+      max-height: 100%;
+      width: 400px;
+      object-fit: cover;
+      margin-top: 70px;
+  }
+  
+    .imagetextcontainer-text {
+        margin-left: 150px;
+         font-size: 40px;
+         margin-top: 65px;
+    }
+
+    .imagetextcontainer-text {
+      position: absolute;
+      
+    
+      font-weight: bold;
+      color: white;
+      
+  }
+  
+    }
+  
+      /* General timeline styling */
+      /* General styling for the timeline */
+      .timeline {
+        position: absolute;
+        width: 300px;
+        margin-top: 130px;
+        padding: 20px 0;
+        left: 20px;
+      }
+  
+      /* Styling for each step */
+      .step {
+        position: relative;
+        padding-left: 50px;
+        /* Align text to the right of the circles */
+        margin-bottom: 30px;
+        /* Space between steps */
+      }
+  
+      /* Circle styling */
+      .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        line-height: 40px;
+        position: absolute;
+        left: 0;
+        /* Position circle on the left */
+        top: 0;
+      }
+  
+      /* Text styling */
+      .step p {
+        margin: 0;
+        padding-left: 30x;
+        /* Align text with the circle */
+        line-height: 40px;
+        color: white;
+      }
+  
+      /* Vertical line connecting the circles */
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        /* Align the line in the center of the circles */
+        top: 20px;
+        bottom: 20px;
+        width: 2px;
+        height: 75%;
+        background-color: white;
+        /* Line color */
+      }
+  
+      @media (min-width: 768px) {
+      .timeline {
+        position: absolute;
+        width: 300px;
+        margin-top: 150px;
+        padding: 20px 0;
+        left: 200px;
+      }
+    }
+  
+      /* Reach Us Section */
+      /* General styling for the container */
+      .reach-us-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow wrapping if space is tight */
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 40px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+      }
+  
+      /* Styling for each section */
+      .reach-us-item {
+        flex: 1;
+        min-width: 200px;
+        /* Prevent items from shrinking too much */
+        margin: 10px;
+      }
+  
+      /* Heading styling */
+      .reach-us-item h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+  
+      /* Text styling */
+      .reach-us-item p {
+        margin: 5px 0;
+        color: #555;
+        font-size: 16px;
+      }
+  
+      /* Social links styling */
+      .social-links {
+        display: flex;
+        /* Display links in a row */
+        gap: 10px;
+        /* Add space between links */
+      }
+  
+      .social-links a {
+        text-decoration: none;
+        color: #0073e6;
+        font-size: 16px;
+        display: inline-block;
+      }
+  
+      .social-links a:hover {
+        text-decoration: underline;
+      }
+  
+      /* Responsive design */
+      @media screen and (max-width: 768px) {
+        .reach-us-container {
+          flex-wrap: nowrap;
+          /* Prevent items from wrapping */
+          justify-content: space-around;
+          /* Balance spacing */
+          gap: 10px;
+          /* Reduce spacing */
+          padding: 0 20px;
+          /* Add padding to prevent overflow */
+        }
+  
+        .reach-us-item {
+          flex: 1;
+          /* Ensure items scale equally */
+          text-align: center;
+          /* Center align text for each section */
+          overflow: hidden;
+          /* Prevent content from overflowing */
+        }
+  
+        .social-links {
+          justify-content: center;
+          /* Center align social links */
+          flex-wrap: wrap;
+          /* Allow social links to wrap if needed */
+          gap: 5px;
+          /* Reduce spacing between links */
+        }
+  
+        .social-links a {
+          max-width: 100%;
+          /* Ensure links stay within the container */
+          word-break: break-word;
+          /* Prevent long text from overflowing */
+        }
+      }
+      
+  
+  
+  
+      /* CTA Section */
+      .cta-section {
+        background: white;
+        padding: 90px 20px;
+        position: relative;
+        z-index: 1;
+        /* Ensure the CTA section is above the purple container */
+        margin-bottom: 40px;
+      }
+  
+      .cta1-container {
+        position: absolute;
+        top: -50px;
+        /* Position to overlap the purple container */
+        left: 50%;
+        transform: translateX(-50%);
+        background: black;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        border-radius: 10px;
+        width: 85%;
+        height: 100%;
+        max-width: 800px;
+        z-index: 2;
+        /* Ensure the CTA overlaps both containers */
+        display: flex;
+        /* Flexbox for centering */
+        flex-direction: column;
+        /* Stack items vertically */
+        justify-content: center;
+        /* Center items vertically */
+        align-items: center;
+        /* Center items horizontally */
+        gap: 10px;
+        /* Add spacing between elements */
+      }
+  
+      .cta1-container h2 {
+        font-size: 24px;
+        margin: 0;
+        margin-top: 6px;
+        
+      }
+  
+      .cta1-container p {
+        font-size: 18px;
+        margin: 0;
+        margin-bottom: 0;
+      
+      }
+  
+      @media (max-width:768px) {
+        .cta1-container h2 {
+          font-size: 18px;
+        }
+
+          .cta1-container p {
+            font-size: 14px;
+      }
+    }
+  
+  
+      /* Hero Section */
+      .keep {
+        background: linear-gradient(to right, #7b0000, #ff0000);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        height: 430px;
+      }
+  
+      .hero-section {
+        background: black;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        height: 600px;
+        margin-bottom: 65px;
+      }
+  
+      .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+  
+      .content-container h1 {
+        font-size: 1.9rem;
+        margin-top: 30px;
+        margin-bottom: 35px;
+      }
+
+      .headertext h1 {
+        color: #faab5c;
+      }
+  
+      .stats-container {
+        position: relative;
+        /* Set the container as the reference for absolute positioning */
+        width: 100%;
+        /* Full width of the parent container */
+        height: 300px;
+        /* Set a height for the container to manage overlap visibility */
+        margin: 0 auto;
+        /* Center the container horizontally */
+        background-color: none;
+        /* Optional: Add background for visibility */
+        overflow: hidden;
+        /* Prevent overflow if needed */
+      }
+
+      
+      
+   
+  
+      .stats-container .box {
+        position: absolute;
+        /* Enable overlapping */
+        border-radius: 10px;
+        /* Optional: Add rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Optional: Add shadow */
+      }
+  
+      .box-1 {
+        top: 20px;
+        left: 4px;
+        width: 180px;
+        height: 270px;
+        background-color: #ee7600;
+          /* Example background color */
+      }
+  
+      .box-2 {
+        position: relative;
+        /* Ensure it's positioned relative to its parent */
+        top: 35px;
+        left: 165px;
+        width: 150px;
+        height: 100px;
+        background-color: #9932CC;
+        display: flex;
+  
+      }
+  
+      .box-3 {
+        position: relative;
+        /* Ensure it's positioned relative to its parent */
+        top: 170px;
+        left: 165px;
+        width: 150px;
+        /* Set width for the boxes */
+        height: 100px;
+        background-color: rgba(80, 239, 17, 0.8);
+        /* Example background color */
+        display: flex;
+      }
+  
+      .box-container1 {
+        h1 {
+          font-size: 3rem;
+          margin-top: 15px;
+          margin-bottom: 0px;
+          text-align: left;
+          margin-left: 15px;
+        }
+  
+        h2 {
+          margin-bottom: 60px;
+          margin-left: 15px;
+          margin-top: 0px;
+          font-size: 11px;
+          text-align: left;
+          font: arial;
+          font-weight: 300;
+          padding-right: 20px;
+        }
+      }
+  
+      .box-container2 h1 {
+        font-size: 3rem;
+        margin: 0;
+        position: absolute;
+        top: -40px;
+        /* Adjust this value to make it overlap more or less */
+        left: 50%;
+        transform: translateX(-50%);
+        /* Center the text horizontally */
+  
+      }
+  
+      .box-container2 h2 {
+        font-size: 11px;
+        font-family: Arial, sans-serif;
+        margin: 1;
+        margin-top: 26px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-weight: 300;
+        color: white;
+        /* Change this to any color you prefer */
+        line-height: 1.2;
+      }
+
+
+      @media (min-width: 1024px) {
+      .content-container h1 {
+        font-size: 2rem;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        padding: 20px 40px;
+      }
+  
+      .stats-container {
+        position: relative;
+        width: 200%;
+        height: 600px;
+        margin: 0 auto;
+        background-color: none;
+        overflow: hidden;
+        
+      }
+  
+      .stats-container .box {
+        position: absolute;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+  
+      .box-1 {
+        top: 30px;
+        left: 95px;
+        width: 220px;
+        height: 270px;
+        background-color: #ee7600;
+      }
+  
+      .box-2 {
+        position: relative;
+        /* Ensure it's positioned relative to its parent */
+        top: 30px;
+        left: 395px;
+        width: 220px;
+        height: 270px;
+        background-color: rgba(154, 0, 192, 0.8);
+        display: flex;
+  
+      }
+  
+      .box-3 {
+        position: relative;
+        /* Ensure it's positioned relative to its parent */
+        top: 30px;
+        left: 695px;
+        width: 220px;
+        height: 270px;
+        background-color: rgba(80, 239, 17, 0.8);
+        /* Example background color */
+        display: flex;
+      }
+  
+      .box-container1 {
+        h1 {
+          font-size: 3rem;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          text-align: left;
+          margin-left: 15px;
+        }
+  
+        h2 {
+          margin-left: 15px;
+          margin-top: -20px;
+          font-size: 13px;
+          text-align: left;
+          font: arial;
+          font-weight: 3;
+          padding-right: 0px;
+        }
+
+        
+      }
+  
+      .box-container2 h1 {
+        font-size: 3rem;
+          margin-top: 40px;
+          margin-bottom: 0px;
+          text-align: center;
+      }
+  
+      .box-container2 h2 {
+        margin-left: 15px;
+          margin-top: 90px;
+          font-size: 13px;
+          text-align: left;
+          font: arial;
+          font-weight: 3;
+      }
+  
+  
+    }
+
+
+    @media (max-width: 1023px) { 
+      .hide-on-mobile {
+        display: none;
+      }
+    }
+    
+  
+      /* text before review*/
+      .customer-reviews {
+        text-align: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+  
+      .rating-overview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+      }
+  
+      .google-logo {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+  
+      .rating-score {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+  
+      .stars {
+        color: gold;
+        font-size: 1.5rem;
+      }
+  
+  
+      /* for review section */
+  
+      .review-section {
+        width: 75%;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 90px;
+      }
+  
+      .reviews-carousel {
+        display: flex;
+        gap: 20px;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        /* Smooth scrolling for transitions */
+      }
+  
+      .review {
+        flex: 0 0 calc(33.33% - 20px);
+        /* For desktop: 3 reviews visible */
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+  
+      .review img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+  
+      .stars {
+        color: #ffd700;
+        margin-top: 10px;
+      }
+  
+      .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 10;
+      }
+  
+      .left-btn {
+        left: 10px;
+      }
+  
+      .right-btn {
+        right: 10px;
+      }
+  
+      @media (max-width: 768px) {
+        .reviews-carousel {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 10px;
+          width: 100%;
+          /* Full width for mobile view */
+        }
+  
+        .review {
+          flex: 0 0 100%;
+          /* Display one review at a time */
+          scroll-snap-align: center;
+          text-align: center;
+          /* Center-align content */
+          padding: 10px;
+        }
+  
+        .carousel-controls {
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+  
+        .prev,
+        .next {
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 10px;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+  
+  
+  
+  
+  
+      /* Floating WhatsApp Button */
+      .whatsapp-floating {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+  
+      .chat-button {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 10;
+      }
+  
+      .chat-button img {
+        width: 30px;
+        height: 23px;
+      }
+  
+      .chat-button span {
+        font-size: 12px;
+        color: #333;
+      }
+  
+  
+  
+      /* Chat Popup */
+      .chat-popup {
+        display: none;
+        position: absolute;
+        bottom: 70px;
+        /* Adjust to make the popup appear above */
+        right: 0;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        padding: 15px;
+      }
+  
+      .popup-header {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+  
+      .popup-header h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+  
+      .popup-header p {
+        font-size: 14px;
+        color: #777;
+      }
+  
+      .chat-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      .chat-option2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      .chat-option img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+  
+      .chat-option div {
+        flex-grow: 1;
+        margin-left: 10px;
+      }
+  
+      .chat-option p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+      }
+  
+      .chat-option span {
+        font-size: 14px;
+        color: #777;
+      }
+  
+  
+  
+      /* Show Popup */
+      .chat-popup.show {
+        display: block;
+      }
+  
+  
+  
+      /* For footer */
+      footer {
+        background-color: #6c757d;
+        /* Grey background */
+        color: white;
+        text-align: justify;
+        padding: 50px;
+      }
+  
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+      }
+  
+      .footer-section {
+        flex: 1 1 calc(33.333% - 20px);
+      }
+  
+      .footer-section h3 {
+        color: #f1b96b;
+        /* Yellow heading */
+      }
+  
+      .footer-section p {
+        margin: 5px 0;
+      }
+
+      .footer-section img {
+        width: 30px;
+        height: 30px;
+      }
+  
+      .footer-section .dot {
+        height: 10px;
+        width: 10px;
+        background-color: rgb(216, 164, 240);
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+  
+      .location iframe {
+      width: 150px;
+      height: 90px;
+      border: 0;
+  }
+  
+      .newsletter form {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+  
+      .newsletter input {
+        padding: 5px;
+        flex: 1;
+      }
+  
+      .newsletter button {
+        padding: 5px 10px;
+        background-color: #343a40;
+        /* Dark grey */
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+  
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 20px;
+      }
+  
+      .footer-links div {
+        flex: 1 1 calc(25% - 20px);
+      }
+  
+      .footer-links h4 {
+        color: #f1b96b;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+  
+      .footer-links a {
+        color: white;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+      
+  
+      .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        border-top: 1px solid white;
+        padding-top: 10px;
+      }
+  
+      .footer-bottom .disclaimer {
+        font-size: 0.9em;
+      }
+  
+      .footer-bottom a {
+        color: #ffd700;
+        /* Yellow links */
+      }
+  
+      .align {
+        width: 80%
+      }
+
+      .ourpartner img {
+        width: 30%;
+        height: auto;
+      }
+
+      .quicklink h4 {
+        text-decoration: none;
+
+      }
+      .quicklink {
+        text-decoration: underline;
+
+      }
+  
+      /* Responsive styles */
+      @media (max-width: 768px) {
+  
+        .footer-container,
+        .footer-links {
+          flex-direction: column;
+          align-items: left;
+          margin-left: -30px;
+          font-size: 14px;
+        }
+  
+        .footer-section,
+        .footer-links div {
+          flex: 1 1 100%;
+          text-align: left;
+        }
+      }
+  
+  
+  
+       /* Enggineering Center */
+          /* Container */
+          .engineering-container {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 20px;
+              padding: 10px;
+              text-align: center;
+          }
+  
+          /* Service Box */
+          .service-box {
+              padding: 15px;
+              border: 2px solid black;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              background-color: #f8f8f8;
+              text-align: center;
+              position: relative; /* Ensures description stays inside */
+              min-height: 50px; /* Keeps all boxes equal height */
+          }
+  
+          /* Description - Initially Hidden */
+          .description {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              background-color: white;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              padding: 10px;
+              display: none; /* Hidden initially */
+              z-index: 10;
+          }
+  
+          /* Show description when active */
+          .service-box.active .description {
+              display: block;
+          }
+  
+          /* Highlighted text */
+          .highlight {
+              color: purple;
+              font-weight: bold;
+          }
+  
+          /* CTA Button */
+          .cta-container {
+              display: flex;
+              justify-content: center;
+              margin-top: 20px;
+          }
+  
+          .cta-button {
+              background: purple;
+              color: white;
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              font-size: 18px;
+              transition: background 0.3s ease;
+          }
+  
+          .cta-button:hover {
+              background: linear-gradient(to right, purple, orange);
+          }
+  
+          /* Responsive: Switch to two columns on larger screens */
+          @media (min-width: 768px) {
+              .engineering-container {
+                  grid-template-columns: 1fr 1fr;
+              }
+          }
+      
+  
+  
+      /* Product Display*/
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row by default (mobile view) */
+        gap: 15px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+        max-width:80%;
+        
+    }
+  
+    .item {
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+  
+    .item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+  
+    .item h3 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+  
+    .price {
+        font-weight: bold;
+        color: #d10ddf;
+    }
+  
+    /* Desktop View: 4 items per row */
+    @media (min-width: 768px) {
+        .container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+  
+  
+     /* Engineering Center */
+  /* Top container */
+  
+  .engineeringtop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    background-color: #9932CC;
+    width: 100%;
+    height: 390px;
+    color: white;
+  
+  }
+  
+  .engineeringtop-text h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    line-height: 60px;
+    
+  }
+  
+  .engineeringtop-text p {
+    font-size: 18px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    line-height: 30px;
+    
+  }
+  
+  .cta-containers {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    border-radius: 30px;
+    border-color: white;
+  }
+  
+   /* Container */
+    .engineering-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 50px;
+        text-align: center;
+        margin-top: 20px;
+    }
+  
+    /* Service Box */
+    .service-box {
+        padding: 25px;
+        border: 2px solid black;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #f8f8f8;
+        text-align: center;
+        position: relative; /* Ensures description stays inside */
+        min-height: 50px; /* Keeps all boxes equal height */
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+  
+    /* Description - Initially Hidden */
+    .description {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        display: none; /* Hidden initially */
+        z-index: 10;
+    }
+  
+    /* Show description when active */
+    .service-box.active .description {
+        display: block;
+    }
+  
+    .service-box:hover {
+      background: rgb(228, 226, 226)
+  }
+  
+    /* Highlighted text */
+    .highlights {
+        color: purple;
+        font-weight: bold;
+    }
+  
+    /* CTA Button */
+  
+    /* Home and coursetop */
+    .cta-buttons {
+        background: purple;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background 0.3s ease;
+        border-radius: 10px;
+        border-color: white;
+        border: 2px solid white;
+        
+    }
+  
+    /* coursetop */
+    .cta-buttons:hover {
+        background: linear-gradient(to right, purple, orange);
+    }
+  
+    /* Responsive: Switch to two columns on larger screens */
+    @media (min-width: 768px) {
+        .engineering-container {
+            grid-template-columns: 1fr 1fr;
+        }
+  
+        .engineeringtop-text p {
+          font-size: 24px;
+          margin-bottom: 22px;
+          margin-top: 5px;
+          line-height: 40px;
+          
+        }
+    }
+  
+  
+    /* Course */
+    .coursestop-container {
+      display: flex;
+      flex-direction: row; /* Ensures image is on the left, text on the right */
+      align-items: center;
+      justify-content: flex-start;
+      padding: 30px;
+      background-color: #9932CC;
+      width: 100%;
+      height: auto;
+      min-height: 390px;
+      color: white;
+      gap: 20px;
+      margin-bottom: 30px;
+  }
+  
+  .coursestop-text h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    line-height: 60px;
+    
+  }
+  
+  .coursestop-text p {
+    font-size: 18px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    line-height: 40px;
+    
+  }
+
+  @media (min-width:768px) {
+    .coursestop-text h1 {
+      line-height: 80px;
+    }
+
+    .coursestop-text p {
+      line-height: 80px;
+    }
+  }
+
+  /* Image styling */
+.coursestop-container img {
+  width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Ensure text section adapts */
+.coursestop-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .imageblock img {
+    display: none;
+  }
+}
+
+  
+  .cta-containers {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    border-radius: 30px;
+    border-color: white;
+    margin-bottom: 5px !important;  /* Force a fixed bottom margin */
+  }
+  
+  .cta3-containers {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 30px;
+    border-color: white;
+    margin-bottom: 5px !important;  /* Force a fixed bottom margin */
+  }
+  
+  @media (min-width: 768px) {
+    .courses-container {
+        grid-template-columns: 1fr 1fr;
+    }
+  
+    .coursestop-text p {
+      font-size: 24px;
+      margin-bottom: 22px;
+      margin-top: 5px;
+      line-height: 40px;
+      
+    }
+  }
+
+  .belowcoursetop {
+    width: 100%;
+    background-color: #f4f4f4;
+    margin-bottom: 30px;
+    height: 80px;
+    margin-top: -30px;
+  }
+
+  .belowcoursetop p {
+    text-align: center;
+    padding: 30px ;
+    font-size: 2vw;
+  }
+  
+  /* Graphic Design Page */
+  /* Header */
+  .header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  /* Containers */
+  .container {
+      max-width: 1300px; /* Increased from 1100px */
+      margin: auto;
+      padding: 40px 30px;
+      margin-top: -30px;
+  
+  }
+  
+  .coursetext h2 {
+    color: #a100b3;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  /* Course Features */
+  .features {
+    list-style: none;
+   
+  }
+  
+  .features li {
+    background-size: 20px;
+    padding-left: 0px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width:768px) {
+    .features li {
+    margin-bottom: 40px;
+  }
+}
+  
+  
+  /* Testimonials */
+  .testimonial {
+    background: #fff;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Enroll Now */
+  .courseenroll {
+    background: #dca6f7;
+    color: rgb(58, 57, 57);
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 40px;
+    margin-top: 10vw;
+  }
+  
+  @media (min-width: 768px) {
+    .courseenroll {
+      margin-top: 30px;
+      margin-bottom: 70px
+    }
+  }
+  /* Two-Column Layout for Desktop */
+  @media (min-width: 768px) {
+    .two-column {
+        display: flex;
+        gap: 5px;
+        align-items: flex-start;
+  
+    }
+    .two-column .left, .two-column .right {
+        flex: 1;
+    }
+  
+    .features {
+      list-style: none;
+      padding: 0;
+      min-width: 200px;
+      font-size: 18px;
+      margin-left: 50px;
+    }
+  
+    .content-box {
+      min-width: 300px;
+    }
+  
+    .content-box p {
+      font-size: 18px;
+    }
+  
+    .testimonial {
+      min-width: 300px;
+    }
+  }
+  
+  /* Ensure testimonials and images scale properly */
+  .testimonial, .two-column img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  
+  /* FAQ Section */
+  .faq-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    margin-bottom: 0px;
+  }
+  
+  .faq-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .faq-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    margin-top: 5px;
+  }
+  
+  .faq-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  /* Animation base (Hidden state) */
+  .faq-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #9932CC;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s ease-in-out, transform 0.8s ease-out, opacity 0.8s ease-out;
+    opacity: 0;
+  }
+  
+  /* Left Slide */
+  .faq-item.left-slide {
+    transform: translateX(-50px);
+  }
+  
+  /* Right Slide */
+  .faq-item.right-slide {
+    transform: translateX(50px);
+  }
+  
+  /* Fade In */
+  .faq-item.fade-in {
+    transform: translateY(20px);
+  }
+  
+  /* When visible, reset animation */
+  .faq-item.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  
+  /* Hover effect */
+  .faq-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Question styles */
+  .faq-question {
+    font-size: 20px;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Answer styles */
+  .faq-answer {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+    padding: 0;
+  }
+  
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-top: 10px;
+  }
+  
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item, .content-box {
+    will-change: transform, opacity;
+}
+
+.content-box, .faq-section, .faq-item {
+    max-width: 100vw;
+    overflow: hidden;
+}
+  
+  @media (min-width:768px) {
+   .faq-section {
+    margin-bottom: 70px;
+  }
+}
+  
+  /* Course Content Grid */
+  .course-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: center;
+  }
+  
+  /* Base Styles */
+  .content-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  /* Make sure animation is triggered properly */
+  .content-box, .faq-item {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  /* Ensure visibility when animation starts */
+  .visible {
+    opacity: 1 !important;
+    transform: translateX(0) scale(1) !important;
+  }
+  
+  
+  
+  /* Left Slide Animation */
+  .content-box.left-slide {
+    transform: translateX(-60px);
+  }
+  
+  /* Right Slide Animation */
+  .content-box.right-slide {
+    transform: translateX(60px);
+  }
+  
+  /* Fade-In Zoom Effect */
+  .content-box.zoom-fade {
+    transform: scale(0.8);
+  }
+  
+  /* When Visible, Reset Animations */
+  .content-box.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  
+  /* Two-Column Layout for Desktop */
+  @media (min-width: 768px) {
+    .two-column {
+      display: flex;
+      gap: 5px;
+      align-items: flex-start;
+    }
+  
+    .two-column .left, .two-column .right {
+      flex: 1;
+    }
+  
+    .features {
+      list-style: none;
+      padding: 0;
+      min-width: 200px;
+      font-size: 18px;
+      margin-left: 50px;
+    }
+  
+    .content-box {
+      min-width: 300px;
+    }
+  
+    .content-box p {
+      font-size: 18px;
+    }
+  } 
+
+
+
+        /* Free Courses*/
+    
+
+      /* Flyer container */
+      .flyer-container {
+          display: grid;
+          grid-template-columns: 1fr; /* 1 column for mobile view */
+          gap: 20px;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 20px;
+          margin-bottom: 80px;
+          margin-top: 60px;
+      }
+
+      /* Flyer box */
+      .flyer {
+          background-color: white;
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          text-align: center;
+      }
+
+      .flyer img {
+          width: 100%;
+          max-width: 350px; /* Keeps flyer size consistent */
+          height: auto;
+          border-radius: 5px;
+      }
+
+      /* Responsive layout for larger screens */
+      @media (min-width: 768px) {
+          .flyer-container {
+              grid-template-columns: 1fr 1fr; /* 2 columns for tablets and desktops */
+          }
+      }
+ 
+
+/* Login Section */
+      /* Global Styles */
+
+
+/* Main Container */
+.login-container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Image Section */
+.login-image {
+  display: none;
+}
+
+.login-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Form Section */
+.form-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.form-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-section input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-section button {
+  background: #9932CC;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.form-section button:hover {
+  background: #4c0270;
+}
+
+.form-section p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.form-section a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.form-section a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .login-container {
+      flex-direction: row;
+  }
+  
+  .login-image {
+      display: block;
+      width: 50%;
+  }
+
+  .form-section {
+      width: 50%;
+      padding: 40px;
+  }
+}
+
+/* Error Message Styling */
+#error-message {
+  color: red;
+  font-size: 14px;
+  display: none; /* Hidden by default */
+}
