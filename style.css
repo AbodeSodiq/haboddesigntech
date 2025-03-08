@@ -225,7 +225,7 @@
       .image-container {
         position: relative;
         /* Enables positioning of child elements */
-        background: url('images/haboddesigntech-page.webp') no-repeat center center;
+        background: url('https://res.cloudinary.com/dsmfo3qr3/image/upload/v1741316965/haboddesigntech-page_eeshbp.webp') no-repeat center center;
         /* Replace with your background */
         background-size: cover;
         /* Ensure the background covers the container */
