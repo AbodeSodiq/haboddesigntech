@@ -1,6 +1,6 @@
 // After debug
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('header.html')  // Fetch the header file
+    fetch('header.html') 
         .then(response => {
             if (!response.ok) {
                 throw new Error("Failed to load header");
